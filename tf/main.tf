@@ -8,6 +8,9 @@ terraform {
   }
 }
 
+provider "vault" {
+}
+
 data "vault_kv_secret_v2" "stack_orchestration" {
   path      = "secrets/secret/stack_orchestration"
 }
