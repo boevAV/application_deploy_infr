@@ -57,8 +57,8 @@ resource "openstack_networking_secgroup_rule_v2" "sec_group_https_rule" {
   security_group_id = openstack_networking_secgroup_v2.sec_group.id
 }
 
-resource "openstack_compute_instance_v2" "weather_bot" {
-  name              = "weather_bot"
+resource "openstack_compute_instance_v2" "w_bot" {
+  name              = "w_bot"
   image_name        = var.image_name
   flavor_name       = var.flavor_name
   key_pair          = var.key_pair
