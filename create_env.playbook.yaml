@@ -52,8 +52,9 @@
       - name: Start Java app service
         systemd:
           daemon_reload: true
-          state: restarted
-          name: bot
+          name: bot.service
+          state: started
+          enabled: yes
      
       rescue:
        - name: Clean up resources because of an error
