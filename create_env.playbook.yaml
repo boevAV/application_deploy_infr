@@ -44,8 +44,10 @@
         
       - name: Set application as service
         copy:
-          src: "{{ unit_path | regex_replace('j2$', 'service') }}"
-          dest: /etc/systemd/system/ 
+          src: "{{ service_path }}"
+          dest: /etc/systemd/system
+          mode: '0777'
+        become: yes
     
       - name: Start Java app service
         systemd:
