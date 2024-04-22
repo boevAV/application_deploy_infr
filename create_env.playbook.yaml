@@ -42,24 +42,24 @@
           src: "{{ jar_path }}"
           dest: /home/ubuntu/target
         
-      - name: Set application as service
+      - name: Copy application
         copy:
           src: "{{ service_path }}"
           dest: /etc/systemd/system
-          owner: root
-          group: root
-          mode: 0644
+          mode: '0777'
+        become: yes
 
       - name: Reload systemd
         systemd:
           daemon_reload: yes
-    
-      - name: Start Java app service
+        become: yes
+        
+      - name: Start bot service
         systemd:
           name: bot.service
           state: started
-          enabled: yes
-     
+        become: yes
+      
       rescue:
        - name: Clean up resources because of an error
          terraform:
