@@ -12,7 +12,8 @@ provider "vault" {
 }
 
 data "vault_kv_secret_v2" "stack_orchestration" {
-  path      = "secret/stack_orchestration"
+  mount     = "secret"
+  path      = "stack_orchestration"
 }
 
 provider "openstack" {
