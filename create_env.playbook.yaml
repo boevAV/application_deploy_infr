@@ -46,12 +46,16 @@
         copy:
           src: "{{ service_path }}"
           dest: /etc/systemd/system
-          mode: '0777'
-        become: yes
+          owner: root
+          group: root
+          mode: 0644
+
+      - name: Reload systemd
+        systemd:
+          daemon_reload: yes
     
       - name: Start Java app service
         systemd:
-          daemon_reload: true
           name: bot.service
           state: started
           enabled: yes
