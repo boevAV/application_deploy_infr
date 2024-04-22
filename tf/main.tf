@@ -23,7 +23,7 @@ provider "openstack" {
 }
 
 resource "openstack_networking_secgroup_v2" "sec_group" {
-  name      = "weather_bot_sec_group"
+  name      = "w_bot_sec_group"
 }
 
 resource "openstack_networking_secgroup_rule_v2" "sec_group_ssh_rule" {
